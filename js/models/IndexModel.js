@@ -26,7 +26,7 @@ class IndexModel {
     }
 
     get tagline() {
-        return this._tagline
+        return this._tagline;
     }
 
     get price() {

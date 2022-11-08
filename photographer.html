@@ -1,37 +1,65 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8">
-    <link href="css/style.css" rel="stylesheet" type="text/css">    
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&amp;display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <!--[if IE]>
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <title>Fisheye - photographe</title>
   </head>
+
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt=""/>
+      <img src="assets/images/logo.png" class="logo" alt="" />
     </header>
     <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <div class="photographer_header">
+        <button type="button" class="contact_button" onclick="displayModal()">
+          Contactez-moi
+        </button>
       </div>
+      <div class="photographer_portofolio"></div>
     </main>
     <div id="contact_modal">
-			<div class="modal">
-				<header>
+      <div class="modal">
+        <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt=""/>
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="" />
         </header>
-				<form>
-					<div>
-						<label for="fname">Prénom</label>
-						<input type="text" id="fname" name="fname" required minlength="4" maxlength="8" size="10"/>
-					</div>
+        <form>
+          <div>
+            <label for="fname">Prénom</label>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              required
+              minlength="4"
+              maxlength="8"
+              size="10"
+            />
+          </div>
           <button type="submit" class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    
+        </form>
+      </div>
+    </div>
+
     <!-- Factories -->
     <script src="/js/factories/PhotographerFactory.js"></script>
 
@@ -46,6 +74,5 @@
 
     <!-- Entry point -->
     <script src="/js/PhotographerApp.js"></script>
-
   </body>
 </html>

@@ -2,22 +2,21 @@ class IndexApp {
     constructor() {
         this.indexWrapper = document.querySelector('.photographer_section');
         
-        this.indexApi = new IndexApi('../data/photographers.json').photographers;
+        this.photographerApi = new PhotographerApi('/data/photographers.json');
     }
     
     async main() {
-        const indexData = await this.indexApi.get();
-        const Photographers = indexData.map(photographer => new IndexFactory(photographer, 'indexApi'));
+        const data = await this.photographerApi.getPhotographer();
+        const photographer = data.photographers;
+        const Photographer = photographer.map(photographer => new IndexFactory(photographer, 'index'));
         
-        console.log(Photographers);
-        
-        Photographers
+        Photographer
         .forEach(photographer => {
-                const Template = new IndexCard(photographer);
-                this.indexWrapper.appendChild(
-                    Template.createIndexCard()
-                );
-            });
+            const Template = new IndexCard(photographer);
+            this.indexWrapper.appendChild(
+                Template.createIndexCard()
+            );
+        });
     }
 }
 
