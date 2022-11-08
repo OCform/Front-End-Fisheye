@@ -22,7 +22,7 @@ class PhotographerModel {
     }
 
     get view() {
-        return this._view.hasOwnProperty('image') ? this._view.image : this._view.video;
+        return this._view.hasOwnProperty('image') ? this._image : this._video;
     }
 
     get image() {
