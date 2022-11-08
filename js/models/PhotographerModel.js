@@ -22,7 +22,7 @@ class PhotographerModel {
     }
 
     get view() {
-        return this._view.hasOwnProperty('image') ? this._image : this._video;
+        return this._view.hasOwnProperty('image') ? `/assets/photographers/${this._image}` : `/assets/photographers/${this._video}`;
     }
 
     get image() {
