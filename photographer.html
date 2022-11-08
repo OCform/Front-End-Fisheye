@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet" type="text/css">    
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&amp;display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt=""/>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -20,18 +20,32 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt=""/>
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="fname">Prénom</label>
+						<input type="text" id="fname" name="fname" required minlength="4" maxlength="8" size="10"/>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button type="submit" class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    
+    <!-- Factories -->
+    <script src="/js/factories/PhotographerFactory.js"></script>
+
+    <!-- Models -->
+    <script src="/js/models/PhotographerModel.js"></script>
+
+    <!-- Templates -->
+    <script src="/js/templates/PhotographerTemplate.js"></script>
+
+    <!-- Api -->
+    <script src="/js/api/Api.js"></script>
+
+    <!-- Entry point -->
+    <script src="/js/PhotographerApp.js"></script>
+
   </body>
 </html>
