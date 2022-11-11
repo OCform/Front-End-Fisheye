@@ -12,9 +12,9 @@ class IndexApp {
         
         Photographer
         .forEach(photographer => {
-            const Template = new IndexCard(photographer);
+            const Template = new IndexTemplate(photographer);
             this.indexWrapper.appendChild(
-                Template.createIndexCard()
+                Template.createIndexTemplate()
             );
         });
     }

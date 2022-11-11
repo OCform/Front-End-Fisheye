@@ -1,6 +1,6 @@
 @import url("photographer.css");
 
-:root{
+:root {
     --primaire: #901C1C;
     --secondaire-AA: #D3573C;
     --secondaire-AAA: #525252;
@@ -102,6 +102,7 @@ h1 {
 /* Photographer Card */
 .photographer_section article .portrait img {
     margin-bottom: 1.5em;
+    border: 1px solid var(--primaire);
     border-radius: 50%;
     height: 200px;
     width: 200px;

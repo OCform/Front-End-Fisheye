@@ -1,11 +1,17 @@
 class PhotographerFactory {
     constructor(data, type) {
-        // Si le type correspond à l'API, alors retourne moi son formattage
-        if (type === 'photographerApi') {
-            return new PhotographerModel(data);
-        // Sinon retourne moi le nouveau formattage
+        const params = new URLSearchParams(document.location.search);
+        const idPhotographer = parseInt(params.get("idPhotographer"));
+        
+        // Si l'identifiant photographe correspond à l'identifiant envoyé, alors retourne moi son formattage
+        if(idPhotographer && (type === 'photographer')){
+            if(data.photographerId === idPhotographer) {
+                console.log(data.photographerId);
+                return new PhotographerModel(data);
+            }
+        // Sinon retourne moi ce message
         } else {
-            throw new Error('Unknown type format');
+            throw new Error('Invalid photographer ID');            
         }
     }
 }

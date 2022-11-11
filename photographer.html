@@ -26,15 +26,39 @@
 
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="" />
+      <a role="link" aria-label="Fisheye Home page" href="/index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" /></a>
     </header>
     <main id="main">
-      <div class="photographer_header">
-        <button type="button" class="contact_button" onclick="displayModal()">
-          Contactez-moi
-        </button>
+      <div class="photographer_portofolio">
+
+        <div class="photographer_header">
+
+          <div class="photographer_cartdrige">
+            <div class="photographer_name"></div>
+            <div class="photographer_location fs-16">
+              <div class="photographer_city"></div>
+              <div class="photographer_country"></div>
+            </div>
+            <div class="photographer_tagline fs-14"></div>
+          </div>
+
+          <div class="photographer_contact">
+            <button type="button" class="contact_button" onclick="displayModal()">
+              Contactez-moi
+            </button>
+          </div>
+
+          <div class="photographer_portrait"></div>
+
+        </div>
+
+        <div class="photographer_sort"></div>
+
+        <div class="photographer_gallery"></div>
+
+        <div class="lightbox"></div>
+
       </div>
-      <div class="photographer_portofolio"></div>
     </main>
     <div id="contact_modal">
       <div class="modal">
@@ -60,13 +84,23 @@
       </div>
     </div>
 
+    <!-- Font awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+      integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    
     <!-- Factories -->
     <script src="/js/factories/PhotographerFactory.js"></script>
 
     <!-- Models -->
     <script src="/js/models/PhotographerModel.js"></script>
 
+    <!-- Decorators -->
+    <script src="/js/decorators/photographerTemplateWithLightbox.js"></script>
+
     <!-- Templates -->
+    <script src="/js/templates/PlayerLightbox.js"></script>
     <script src="/js/templates/PhotographerTemplate.js"></script>
 
     <!-- Api -->
@@ -74,5 +108,6 @@
 
     <!-- Entry point -->
     <script src="/js/PhotographerApp.js"></script>
+
   </body>
 </html>

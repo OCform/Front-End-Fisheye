@@ -1,3 +1,53 @@
+:root {
+    --primaire: #901C1C;
+    --secondaire-AA: #D3573C;
+    --secondaire-AAA: #525252;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Utility class */
+.mar-pad {
+    margin: 0;
+    padding: 0;
+}
+
+.fs-32 {
+    font-size: 32px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+.center {
+    text-align: center;
+}
+
 #contact_modal {
     display: none;
 }
@@ -5,8 +55,189 @@
 .photographer_header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 0 auto;
+    max-width: 1240px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
 }
+
+.photographer_header h1 {
+    font-size: 46px;
+    color: var(--secondaire-AA);
+    margin: 0;
+    padding: 0;
+}
+
+.photographer_header .photographer_location {
+    color: var(--primaire);
+}
+
+.photographer_header .photographer_portrait img {
+    margin-left: 100px;
+    border: 1px solid var(--primaire);
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    box-shadow: 4px 5px 5px var(--secondaire-AAA);
+}
+
+.photographer_gallery {
+    /* max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 50px 50px; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 75px 25px;    
+    justify-items: center;
+    max-width: 1286px;
+    margin: 0 auto;
+}
+
+.photographer_gallery .media_wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+}
+
+.photographer_gallery .media_wrapper video {
+    width: 350px;
+    height: 300px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.photographer_gallery .media_wrapper img {
+    width: 350px;
+    height: 300px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.media_wrapper div {
+    display: flex;
+    justify-content: space-between;
+} 
+
+.media_wrapper span:nth-child(2) {
+    color: #901C1C;
+}
+
+/* Lightbox Modal */
+.lightbox_on {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, .7);
+    overflow: hidden;
+}
+
+/* Player Lightbox Modal */
+.player_wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player {
+    position: relative;
+}
+
+.player button:nth-child(2) {
+    margin: 0;
+    padding: 0;
+    height: 900px;
+    width: 1050px;
+    object-fit: cover;
+    background-color: transparent;
+    border: none;
+}
+
+.player button:nth-child(2) img {
+    margin: 0;
+    padding: 0;
+    height: 900px;
+    width: 1050px;
+    object-fit: cover;
+    background-color: transparent;
+}
+
+.player button:nth-child(2) video {
+    margin: 0;
+    padding: 0;
+    height: 900px;
+    width: 1050px;
+    object-fit: cover;
+    background-color: transparent;
+}
+
+.close-btn {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #eee;
+    color: var(--primaire);
+    border: 1px solid #333;
+    border-radius: 8px;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.slide-left-btn {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 100%;
+    transform: translateX(-50%);
+    background-color: #eee;
+    color: var(--primaire);
+    border: 1px solid #333;
+    border-radius: 8px;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.slide-right-btn {
+    position: absolute;
+    bottom: -40px;
+    left: 100%;
+    right: 0;
+    transform: translateX(-50%);
+    background-color: #eee;
+    color: var(--primaire);
+    border: 1px solid #333;
+    border-radius: 8px;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.close-btn:hover, 
+.slide-left-btn:hover,
+.slide-right-btn:hover {
+    background-color: var(--primaire);
+    color: #eee;
+}
+/* End lightbox */
 
 .contact_button {
     font-size: 20px;
