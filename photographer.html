@@ -43,7 +43,7 @@
           </div>
 
           <div class="photographer_contact">
-            <button type="button" class="contact_button" onclick="displayModal()">
+            <button type="button" class="contact_button">
               Contactez-moi
             </button>
           </div>
@@ -55,8 +55,8 @@
         <div class="photographer_sort"></div>
 
         <div class="photographer_gallery"></div>
-
-        <div class="lightbox"></div>
+        
+        <div class="modal"></div>
 
       </div>
     </main>
@@ -91,23 +91,23 @@
     </script>
     
     <!-- Factories -->
-    <script src="/js/factories/PhotographerFactory.js"></script>
+    <script src="/js/factories/MediasFactory.js"></script>
 
     <!-- Models -->
-    <script src="/js/models/PhotographerModel.js"></script>
+    <script src="/js/models/OneMedia.js"></script>
 
     <!-- Decorators -->
-    <script src="/js/decorators/photographerTemplateWithLightbox.js"></script>
+    <script src="/js/decorators/mediaCardWithLightbox.js"></script>
 
     <!-- Templates -->
-    <script src="/js/templates/PlayerLightbox.js"></script>
-    <script src="/js/templates/PhotographerTemplate.js"></script>
+    <script src="/js/templates/LightboxModal.js"></script>
+    <script src="/js/templates/MediaCard.js"></script>
 
     <!-- Api -->
     <script src="/js/api/Api.js"></script>
 
     <!-- Entry point -->
-    <script src="/js/PhotographerApp.js"></script>
+    <script src="/js/Medias.js"></script>
 
   </body>
 </html>

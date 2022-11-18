@@ -1,17 +1,11 @@
 class PhotographerFactory {
-    constructor(data, type) {
-        const params = new URLSearchParams(document.location.search);
-        const idPhotographer = parseInt(params.get("idPhotographer"));
-        
-        // Si l'identifiant photographe correspond à l'identifiant envoyé, alors retourne moi son formattage
-        if(idPhotographer && (type === 'photographer')){
-            if(data.photographerId === idPhotographer) {
-                console.log(data.photographerId);
-                return new PhotographerModel(data);
-            }
-        // Sinon retourne moi ce message
+    constructor(photographer, type) {
+        // Si le type correspond alors retourne moi son formattage
+        if (type === 'photographer') {
+            return new OnePhotographer(photographer);
+        // Sinon retourne moi ce message d'erreur
         } else {
-            throw new Error('Invalid photographer ID');            
+            throw new Error('Le type de formatage est inconnu !');
         }
     }
 }

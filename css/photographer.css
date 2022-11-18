@@ -52,6 +52,18 @@ a {
     display: none;
 }
 
+#contact_modal .modal {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
+}
+
 .photographer_header {
     background-color: #FAFAFA;
     height: 300px;
@@ -101,37 +113,38 @@ a {
     margin: 0 auto;
 }
 
-.photographer_gallery .media_wrapper {
+.photographer_gallery .media-card-wrapper {
     display: flex;
     flex-direction: column;
     max-width: 350px;
 }
 
-.photographer_gallery .media_wrapper video {
+.photographer_gallery .media-card-wrapper video {
     width: 350px;
     height: 300px;
     -o-object-fit: cover;
     object-fit: cover;
 }
 
-.photographer_gallery .media_wrapper img {
+.photographer_gallery .media-card-wrapper img {
     width: 350px;
     height: 300px;
     -o-object-fit: cover;
     object-fit: cover;
 }
 
-.media_wrapper div {
+.media-card-wrapper div {
     display: flex;
     justify-content: space-between;
 } 
 
-.media_wrapper span:nth-child(2) {
+.media-card-wrapper span:nth-child(2) {
     color: #901C1C;
 }
 
-/* Lightbox Modal */
-.lightbox_on {
+/* Modal */
+
+.modal-on {
     position: absolute;
     left: 0;
     top: 0;
@@ -141,19 +154,19 @@ a {
     overflow: hidden;
 }
 
-/* Player Lightbox Modal */
-.player_wrapper {
+/* Lightbox Modal */
+.lightbox-wrapper {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 
-.player {
+.lightbox {
     position: relative;
 }
 
-.player button:nth-child(2) {
+.lightbox button:nth-child(2) {
     margin: 0;
     padding: 0;
     height: 900px;
@@ -163,7 +176,7 @@ a {
     border: none;
 }
 
-.player button:nth-child(2) img {
+.lightbox button:nth-child(2) img {
     margin: 0;
     padding: 0;
     height: 900px;
@@ -172,7 +185,7 @@ a {
     background-color: transparent;
 }
 
-.player button:nth-child(2) video {
+.lightbox button:nth-child(2) video {
     margin: 0;
     padding: 0;
     height: 900px;
@@ -237,7 +250,6 @@ a {
     background-color: var(--primaire);
     color: #eee;
 }
-/* End lightbox */
 
 .contact_button {
     font-size: 20px;
@@ -250,18 +262,6 @@ a {
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
 }
 
 .modal header {
