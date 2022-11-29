@@ -2,7 +2,8 @@ class MediaCard {
     constructor(media) {
         this._media = media;  
         
-        this.$wrapper = document.createElement('div');
+        this.$wrapper = document.createElement('a');
+        this.$wrapper.setAttribute('href', `${media.view}`);
         this.$wrapper.classList.add('media-card-wrapper');
     }
 
@@ -14,7 +15,7 @@ class MediaCard {
         // DOM elements        
         const params = new URLSearchParams(document.location.search);
         const idPhotographer = parseInt(params.get("idPhotographer"));
-                        
+        
         if(this._media.photographerId === idPhotographer) {
             
             if(`${this._media.type}`=== 'image' && this.$wrapper !== '') {

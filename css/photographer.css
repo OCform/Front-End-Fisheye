@@ -24,6 +24,20 @@ a {
 }
 
 /* Utility class */
+/* .sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+} */
+
 .mar-pad {
     margin: 0;
     padding: 0;
@@ -46,22 +60,6 @@ a {
 }
 .center {
     text-align: center;
-}
-
-#contact_modal {
-    display: none;
-}
-
-#contact_modal .modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
 }
 
 .photographer_header {
@@ -98,18 +96,11 @@ a {
 }
 
 .photographer_gallery {
-    /* max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    gap: 50px 50px; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 75px 25px;    
     justify-items: center;
-    max-width: 1286px;
+    max-width: 1296px;
     margin: 0 auto;
 }
 
@@ -121,14 +112,14 @@ a {
 
 .photographer_gallery .media-card-wrapper video {
     width: 350px;
-    height: 300px;
+    height: 350px;
     -o-object-fit: cover;
     object-fit: cover;
 }
 
 .photographer_gallery .media-card-wrapper img {
     width: 350px;
-    height: 300px;
+    height: 350px;
     -o-object-fit: cover;
     object-fit: cover;
 }
@@ -143,18 +134,65 @@ a {
 }
 
 /* Modal */
-
 .modal-on {
-    position: absolute;
-    left: 0;
+    position: fixed;
     top: 0;
-    height: 100vh;
+    left: 0;
     width: 100vw;
-    background-color: rgba(255, 255, 255, .7);
-    overflow: hidden;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+    overflow: hidden; 
 }
 
-/* Lightbox Modal */
+body > div > button.close-btn,
+body > div > button.next-btn,
+body > div > button.prev-btn {
+    display: none;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    left: auto;
+    right: 0;
+    top: 50%;
+    margin: 0;
+    padding: 0;    
+    border-radius: 20%;  
+    z-index: 1001;  
+}
+
+body > div > button.next-btn:hover,
+body > div > button.prev-btn:hover {}
+
+body > div > button.prev-btn {
+    transform: rotate(180deg);
+    right: auto;
+    left: 0;
+}
+
+body > div > button.close-btn {
+    padding: 2px 1px;
+    top: 0;
+    left: auto;
+    right: 0;
+}
+
+body > div > div > .lightbox-wrapper {
+    max-width: 1440px;
+}
+
+body > div > div > img,
+body > div > div > video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Lightbox Modal
 .lightbox-wrapper {
     position: absolute;
     left: 50%;
@@ -166,38 +204,30 @@ a {
     position: relative;
 }
 
-.lightbox button:nth-child(2) {
+.lightbox  img {
     margin: 0;
     padding: 0;
-    height: 900px;
-    width: 1050px;
-    object-fit: cover;
-    background-color: transparent;
-    border: none;
-}
-
-.lightbox button:nth-child(2) img {
-    margin: 0;
-    padding: 0;
-    height: 900px;
-    width: 1050px;
-    object-fit: cover;
+    height: 50vh;
+    width: 70vw;
+    object-fit: contain;
     background-color: transparent;
 }
 
-.lightbox button:nth-child(2) video {
+.lightbox video {
     margin: 0;
     padding: 0;
-    height: 900px;
-    width: 1050px;
+    height: 270px;
+    width: 480px;
     object-fit: cover;
     background-color: transparent;
 }
 
 .close-btn {
     position: absolute;
-    bottom: -40px;
-    left: 50%;
+    bottom: 100%;
+    left: 100%;
+    right: 0;
+    top: 0;
     transform: translateX(-50%);
     background-color: #eee;
     color: var(--primaire);
@@ -304,4 +334,4 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
-}
+} */

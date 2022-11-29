@@ -55,35 +55,14 @@
         <div class="photographer_sort"></div>
 
         <div class="photographer_gallery"></div>
-        
-        <div class="modal"></div>
-
+      
       </div>
     </main>
-    <div id="contact_modal">
-      <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="" />
-        </header>
-        <form>
-          <div>
-            <label for="fname">Prénom</label>
-            <input
-              type="text"
-              id="fname"
-              name="fname"
-              required
-              minlength="4"
-              maxlength="8"
-              size="10"
-            />
-          </div>
-          <button type="submit" class="contact_button">Envoyer</button>
-        </form>
-      </div>
+    <div class="modal">
+      <button type="button" class="close-btn"><img src="/assets/icons/close.svg" alt="close"></button>
+      <button type="button" class="next-btn" ><img src="/assets/icons/chevron.svg" alt="next"></button>
+      <button type="button" class="prev-btn" ><img src="/assets/icons/chevron.svg" alt="previous"></button>
     </div>
-
     <!-- Font awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
       integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
@@ -97,7 +76,7 @@
     <script src="/js/models/OneMedia.js"></script>
 
     <!-- Decorators -->
-    <script src="/js/decorators/mediaCardWithLightbox.js"></script>
+    <script src="/js/decorators/MediaCardWithLightbox.js"></script>
 
     <!-- Templates -->
     <script src="/js/templates/LightboxModal.js"></script>

@@ -4,6 +4,8 @@ class Medias {
         this.$modalWrapper = document.querySelector('.modal');
         
         this.mediasApi = new PhotographerApi('/data/photographers.json');
+
+        this.$mediaList = [];
         
         // Medias
         this.Medias = [];
@@ -12,6 +14,7 @@ class Medias {
     async fetchMedias() {
         const mediasData = await this.mediasApi.getPhotographer();
         const $media = mediasData.media;
+        
         const medias = $media.map(media => new MediasFactory(media, 'media'));
         
         this.Medias = medias;
@@ -38,10 +41,14 @@ class Medias {
         photographerPortrait.innerHTML = `<img src="${portrait}" alt=""${name}/>`;
 
         await this.fetchMedias();
-
+        
         this.Medias.forEach(media => {
             if(media.photographerId === idPhotographer) {
-                const Template = mediaCardWithLightbox(
+                
+                this.$mediaList.push(media);
+                this.n = this.$mediaList.indexOf(this.photographer);
+                
+                const Template = new MediaCardWithLightbox(
                     new MediaCard(media)
                 );
 
@@ -55,7 +62,7 @@ class Medias {
 
 const media = new Medias();
 media.main();
-
+console.log(media.$mediaList);
 
 // class PhotographerApp {
 //     constructor() {
