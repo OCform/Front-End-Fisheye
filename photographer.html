@@ -58,11 +58,12 @@
       
       </div>
     </main>
-    <div class="modal">
-      <button type="button" class="close-btn"><img src="/assets/icons/close.svg" alt="close"></button>
-      <button type="button" class="next-btn" ><img src="/assets/icons/chevron.svg" alt="next"></button>
-      <button type="button" class="prev-btn" ><img src="/assets/icons/chevron.svg" alt="previous"></button>
+    <div class="photographer_lightbox">
+      <button type="button" class="close-btn"><em class="fa-solid fa-xmark">close</em></button>
+      <button type="button" class="next-btn" ><em class="fa-solid fa-chevron-right">next</em></button>
+      <button type="button" class="prev-btn" ><em class="fa-solid fa-chevron-right">previous</em></button>
     </div>
+    <div class="photographer_form"></div>
     <!-- Font awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
       integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
@@ -75,15 +76,23 @@
     <!-- Models -->
     <script src="/js/models/OneMedia.js"></script>
 
+    <!-- Singleton -->
+    <script src="/js/db/User.js"></script>
+
     <!-- Decorators -->
     <script src="/js/decorators/MediaCardWithLightbox.js"></script>
 
     <!-- Templates -->
+    <script src="/js/templates/FormModal.js"></script>
     <script src="/js/templates/LightboxModal.js"></script>
     <script src="/js/templates/MediaCard.js"></script>
 
     <!-- Api -->
     <script src="/js/api/Api.js"></script>
+
+    <!-- UserContext -->
+    <script src="/js/user/State.js"></script>
+    <script src="/js/user/Context.js"></script>
 
     <!-- Entry point -->
     <script src="/js/Medias.js"></script>

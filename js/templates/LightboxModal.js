@@ -1,205 +1,100 @@
 class LightboxModal {
     constructor(photographer) {
-        this.photographer = photographer;
+        this._photographer = photographer;
         
         this.$wrapper = document.createElement('div');
-        this.$wrapper.classList.add('lightbox-wrapper');
-
-        this.$modalWrapper = document.querySelector('.modal');
-        this.$modalClose = this.$modalWrapper.querySelector('body > div > button.close-btn');
-        this.$modalNext = this.$modalWrapper.querySelector('body > div > button.next-btn');
-        this.$modalPrev = this.$modalWrapper.querySelector('body > div > button.prev-btn');
+        this.$wrapper.classList.add('lightbox-wrapper'); 
+        
+        this.$lightboxWrapper = document.querySelector('.photographer_lightbox');
+        this.$lightboxClose = this.$lightboxWrapper.querySelector('body > div > button.close-btn');
+        this.$lightboxNext = this.$lightboxWrapper.querySelector('body > div > button.next-btn');
+        this.$lightboxPrev = this.$lightboxWrapper.querySelector('body > div > button.prev-btn');
+    }
+    get photographer() {
+        return this._photographer;
+    }
+    
+    get type() {
+        return this._photographer.type;
     }
     
     onCloseButton() {
-        this.$modalClose
+        this.$lightboxClose
         .addEventListener('click', () => {
-            this.$modalWrapper.classList.remove('modal-on');
+            this.$lightboxWrapper.classList.remove('photographer_lightbox_on');
             this.$wrapper.innerHTML = "";
-            this.$modalClose.style.display = 'none';
-            this.$modalNext.style.display = 'none';
-            this.$modalPrev.style.display = 'none';
+            this.$lightboxWrapper.removeChild(this.$wrapper);
+            this.$lightboxClose.style.display = 'none';
+            this.$lightboxNext.style.display = 'none';
+            this.$lightboxPrev.style.display = 'none';
         });
     }
-
-    onNextButton() {
-        const med = new LightboxModal(media);
-        const ListMedias = med.photographer.$mediaList;
-        let n = ListMedias.indexOf(this.photographer);
-                
-        this.$modalNext
-        .addEventListener('click', () => {
-            
-            n += 1;            
-            if (n > ListMedias.length-1) {n = 0;}
-            console.log('counter',n);
-            console.log(`${this.photographer.type}`);
-            if(`${this.photographer.type}`=== 'image') {
-                this.photographer._type = 'image';
-                const image = document.createElement('img');
-                image.setAttribute('src', `${ListMedias[n].view}`);
-                image.setAttribute('alt', `${ListMedias[n].title}`);
-                this.$modalWrapper.classList.remove('modal-on');
-                this.$wrapper.innerHTML = '';
-                this.$wrapper.append(image);
-                
-                console.log(image.src);            
-            } 
-            
-            if(this.photographer.type === 'video') {
-                this.photographer._type = 'video';
-                const video = document.createElement('video');
-                video.controls = 'controls';
-                const source = document.createElement('source');
-                video.appendChild(source);
-                source.setAttribute('src', `${ListMedias[n].view}`);
-                // source.setAttribute('alt', `${ListMedias[n].title}`);
-                video.play();
-                this.$modalWrapper.classList.remove('modal-on');
-                this.$wrapper.innerHTML = '';
-                this.$wrapper.append(video);
-                this.$wrapper.innerHTML = `
-                    <video controls>
-                        <source
-                            src="${source.src}"
-                            alt="${source.alt}"                            
-                            type="video/mp4"
-                            Votre navigateur ne lit pas ce format video.                    
-                        >
-                    </video>
-                    `;          
-                
-                console.log(video.src);
-            } else {
-                throw new Error('Aucune image, ni video !');
-            }
-        });
-        
-    }
-
-    onPrevButton() {
-        const med = new LightboxModal(media);
-        const ListMedias = med.photographer.$mediaList;
-        let n = ListMedias.indexOf(this.photographer);
-        
-        this.$modalPrev
-        .addEventListener('click', () => {
-            
-            n -= 1;
-            if(n < 0) n = ListMedias.length-1;
-            console.log('counter',n);
-            console.log(`${this.photographer.type}`);
-            if(`${this.photographer.type}`=== 'image') {
-                this.photographer._type = 'image';
-                const image = document.createElement('img');
-                image.setAttribute('src', `${ListMedias[n].view}`);
-                image.setAttribute('alt', `${ListMedias[n].title}`);
-                this.$modalWrapper.classList.remove('modal-on');
-                this.$wrapper.innerHTML = '';
-                this.$wrapper.append(image);
-                                
-                console.log(image.src);            
-            }
-            
-            if(`${this.photographer.type}`=== 'video') {
-                this.photographer._type = 'video';
-                const video = document.createElement('video');
-                video.controls = 'controls';
-                const source = document.createElement('source');
-                video.appendChild(source);
-                source.setAttribute('src', `${ListMedias[n].view}`);
-                source.setAttribute('alt', `${ListMedias[n].title}`);
-                video.play();
-                this.$wrapper.innerHTML = '';
-                this.$wrapper.parentNode.removeChild(div);
-                this.$modalWrapper.classList.remove('modal-on');                
-                this.$wrapper.append(video);
-                this.$wrapper.innerHTML = `
-                    <video controls>
-                        <source
-                            src="${source.src}"
-                            alt="${source.alt}"                            
-                            type="video/mp4"
-                            Votre navigateur ne lit pas ce format video.                    
-                        >
-                    </video>
-                    `;            
-                                
-                console.log(source.src);
-            } else {
-                throw new Error('Aucune image, ni video !');
-            }
-
-        });
-        
-    }
-    
     createLightbox() {
-        const med = new LightboxModal(media);
-        const ListMedias = med.photographer.$mediaList;
-        let n = ListMedias.indexOf(this.photographer);
+        const $media = new LightboxModal(media);
+        const $list = $media.photographer.$mediaList;
+
+        this.index = $list.indexOf(this.photographer);
+
+        this.slide = this.index;
         
-        if(`${this.photographer.type}`=== 'image') {
-            this.photographer._type = 'image';
-            const image = document.createElement('img');
-            image.setAttribute('src', `${ListMedias[n].view}`);
-            image.setAttribute('alt', `${ListMedias[n].title}`);
-            this.$wrapper.innerHTML = '';
-            this.$wrapper.append(image);
-            console.log(image.src); 
-            // this.photographer._type = '';           
-        } else if(`${this.photographer.type}`=== 'video') {
-            this.photographer._type = 'video';
-            const video = document.createElement('video');
-            video.controls = 'controls';
-            const source = document.createElement('source');
-            video.appendChild(source);
-            source.setAttribute('src', `${ListMedias[n].view}`);
-            // source.setAttribute('alt', `${ListMedias[n].title}`);
-            video.play();
-            this.$wrapper.innerHTML = '';
-            this.$wrapper.append(video);
-            console.log(source.src);
-            // this.photographer._type = '';
-        } else {
+        this.$lightboxNext
+        .addEventListener('click', (e) => {
+            e.preventDefault();
+            this.slide++;                
+            if(this.slide > $list.length-1) {this.slide = 0;}
+            console.log(this.$wrapper);
+            if(this.$lightboxWrapper.children) this.$lightboxWrapper.removeChild(this.$wrapper);
+            const Lightbox = new LightboxModal($list[this.slide]);
+            Lightbox.render();
+        });
+
+        this.$lightboxPrev
+        .addEventListener('click', (e) => { 
+            e.preventDefault();
+            this.slide--;                
+            if(this.slide < 0) {this.slide = $list.length-1;}
+            this.$lightboxWrapper.removeChild(this.$wrapper);
+            const Lightbox = new LightboxModal($list[this.slide]);
+            Lightbox.render();
+        });
+
+        this.image = document.createElement('img');                
+        this.video = document.createElement('video');
+        if(this._photographer.type === 'image') {
+            const player = `
+            <div>
+                <img 
+                    src="${$list[this.slide].image}" 
+                    alt="${$list[this.slide].title}"
+                >
+                ${$list[this.slide].title}
+            </div>
+            `;            
+            this.$wrapper.innerHTML = player;
+        } else if(this._photographer.type === 'video') {
+            const player = `
+            <div>
+                <video width="320" height="240" controls>
+                    <source src="${$list[this.slide].video}" type="video/mp4">                    
+                    Your browser does not support the video tag.
+                </video> 
+                <span>${$list[this.slide].title}</span>
+            </div>                              
+            `;
+            const caption = `<span><div class="media-card-caption">${$list[this.slide].title}</div></span>`;
+            this.$wrapper.innerHTML = player;
+        }  else {
             this.$wrapper.parentNode.removeChild(div);
             throw new Error('Aucune image, ni video !');
         }
         
+        this.$lightboxWrapper.classList.add('photographer_lightbox_on');
+        this.$lightboxWrapper.appendChild(this.$wrapper);
+        this.$lightboxClose.style.display = 'block';
+        this.$lightboxNext.style.display = 'block';
+        this.$lightboxPrev.style.display = 'block';
         
-        
-        //     this.$wrapper.innerHTML = `
-        //         <img 
-        //             src="${ListMedias[n].view}"
-        //             alt="${ListMedias[n].title}"                    
-        //         >
-        //     `;
-        
-        //     this.$wrapper.innerHTML = `
-        //         <video controls>
-        //             <source
-        //                 src="${ListMedias[n].view}"
-        //                 alt="${ListMedias[n].title}"                            
-        //                 type="video/mp4"
-        //                 Votre navigateur ne lit pas ce format video.                    
-        //             >
-        //         </video>
-        //     `;
-        // } else {
-        //     this.$wrapper.parentNode.removeChild(div);
-        //     throw new Error('Aucune image, ni video !');
-        // }
-        
-        this.$modalWrapper.classList.add('modal-on');
-        this.$modalWrapper.appendChild(this.$wrapper);
-        this.$modalClose.style.display = 'block';
-        this.$modalNext.style.display = 'block';
-        this.$modalPrev.style.display = 'block';
-        
-        this.onCloseButton();
-        this.onNextButton();
-        this.onPrevButton();
-        
+        this.onCloseButton();        
     }
     
     render() {        

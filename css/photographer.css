@@ -81,6 +81,19 @@ a {
     padding: 0;
 }
 
+#main > div > div.photographer_header > div.photographer_contact > button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .photographer_header .photographer_location {
     color: var(--primaire);
 }
@@ -130,66 +143,201 @@ a {
 } 
 
 .media-card-wrapper span:nth-child(2) {
-    color: #901C1C;
+    color: var(--primaire);
 }
 
-/* Modal */
-.modal-on {
+#main > div > div.photographer_gallery > a > div {
+    color: var(--primaire);
+}
+
+/* Modal lightbox */
+.photographer_lightbox_on {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0, 0, 0, .3);
     z-index: 1000;
     overflow: hidden; 
 }
 
 body > div > button.close-btn,
 body > div > button.next-btn,
-body > div > button.prev-btn {
+body > div > button.prev-btn {    
+    border: none;
+    color: var(--primaire);
+    background-color: transparent;
+    font-size: 40px;
     display: none;
     position: fixed;
     width: 50px;
     height: 50px;
     left: auto;
-    right: 0;
+    right: 24.5%;
     top: 50%;
-    margin: 0;
-    padding: 0;    
+    margin: auto;
+    padding: 4.5px;    
     border-radius: 20%;  
     z-index: 1001;  
 }
 
+body > div > button.close-btn:hover,
 body > div > button.next-btn:hover,
-body > div > button.prev-btn:hover {}
+body > div > button.prev-btn:hover {
+    color: #FFF;
+    background-color: var(--primaire);
+    transition: all cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
 
 body > div > button.prev-btn {
     transform: rotate(180deg);
     right: auto;
-    left: 0;
+    left: 25.2%;
 }
 
 body > div > button.close-btn {
-    padding: 2px 1px;
-    top: 0;
+    position: absolute;
+    /* padding: 2px 1px; */
+    top: 20%;
     left: auto;
-    right: 0;
+    right: 25%;    
 }
 
 body > div > div > .lightbox-wrapper {
     max-width: 1440px;
 }
 
-body > div > div > img,
-body > div > div > video {
-    width: 100vw;
-    height: 100vh;
+body > div > div > div > img,
+body > div > div > div > video {
+    width: 50vw;
+    height: 50vh;
+    max-width: 1440px;
+    max-height: 810px;
     object-fit: contain;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+/* Modal contact */
+.photographer_form {
+    display: block;
+}
+
+.form-on {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 300vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, .9);
+    overflow: hidden;
+}
+
+.photographer_form form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
+    background-color: #DB8876;   
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+body > div.photographer_form.form-on > div > form > div.header {
+    display: flex;
+    flex-direction: row;
+}
+
+body > div.photographer_form.form-on > div > form > div.header > h1 {
+    margin-top: 0px;
+    color: #000;
+    font-size: 64px;
+}
+
+body > div.photographer_form.form-on > div > form > div.header > button {
+    border: none;
+    width: 50px;
+    height: 50px;
+    color: #FFF;
+    background-color: transparent;
+    font-size: 64px;
+}
+
+body > div.photographer_form.form-on > div > form > div.header > button > span {
+    font-size: 0;
+    width: 0;
+    height: 0;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    margin-bottom: 8px;
+    font-size: 32px;
+}
+
+#firstname, 
+#lastname, 
+#email,
+#message {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+#firstname, 
+#lastname, 
+#email {
+    height: 68px;
+}
+
+body > div.photographer_form.form-on > div > form > button.submit-btn {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-top: 12px;
+    height: 40px;
+    background-color: #eee;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #333;
+    transition: .4s;
+    cursor: pointer; */
+}
+
+.submit-btn:hover {
+    background-color: #333;
+    color: #eee;
+    border-color: #eee;
+}
+
+.forms-wrapper {
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: baseline;
+    justify-content: space-between;
 }
 
 /* Lightbox Modal
