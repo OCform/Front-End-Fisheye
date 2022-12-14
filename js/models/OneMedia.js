@@ -3,10 +3,8 @@ class OneMedia {
         this._id = media.id;
 		this._photographerId = media.photographerId;
 		this._title = media.title;
-        this._image = media.image? media.image : media.video;
-        this._video = media.video? media.video : media.image;
+        this._view = media.image? media.image : media.video;
         this._type = media.image ? 'image' : 'video';
-        this._type = media.video ? 'video' : 'image';
         this._likes = media.likes;
 		this._date = media.date;
 		this._price = media.price;                
@@ -24,12 +22,8 @@ class OneMedia {
         return this._title;
     }
     
-    get image() {
-        return `/assets/photographers/${this._image}`;
-    }
-
-    get video() {
-        return `/assets/photographers/${this._video}`;
+    get view() {
+        return `/assets/photographers/${this._view}`;
     }
     
     get type() {
