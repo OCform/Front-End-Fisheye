@@ -6,6 +6,8 @@
 
 html {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 *,
@@ -146,12 +148,152 @@ a {
     color: var(--primaire);
 }
 
-#main > div > div.photographer_gallery > a > div {
+#main > div > div.photographer_gallery > div > div {
     color: var(--primaire);
-}
+} 
 
 /* Modal lightbox */
-.photographer_lightbox_on {
+/* * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} */
+
+.photographer_portofolio {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px 60px 0px;
+}
+
+.photographer_gallery {
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.media-card-wrapper {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.media-card-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s ease-in-out;
+}
+
+.media-card-wrapper img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 950px) {
+    .photographer_gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .photographer_gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
+} 
+
+/*Image lightbox*/
+/* 
+.show {
+    display: block;
+} 
+
+.hide {
+    display: none;
+}
+*/
+
+.lightbox {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.733);
+    margin-top: -1px;
+    animation: zoom 0.3s ease-in-out;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.lightbox img {
+    width: 20%;
+    /* height: 50%; */
+    object-fit: cover;
+}
+
+.closeBtn {
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    z-index: 1000;
+}
+
+.closeBtn:hover {
+    color: rgb(255, 255, 255);
+}
+
+.nextBtn {
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin: 20px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    z-index: 1000;
+}
+
+.nextBtn:hover {
+    color: rgb(255, 255, 255);
+}
+
+.prevBtn {
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin: 20px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    z-index: 1000;
+}
+
+.prevBtn:hover {
+    color: rgb(255, 255, 255);
+}
+
+
+
+/* .photographer_lightbox_on {
     position: fixed;
     top: 0;
     left: 0;
@@ -219,7 +361,7 @@ body > div > div > div > video {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 /* Modal contact */
 .photographer_form {

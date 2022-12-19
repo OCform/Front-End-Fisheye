@@ -8,13 +8,10 @@ class Medias {
         this.tagline = this.params.get("tagline");
         this.portrait = this.params.get("portrait");
 
-        this.$mediasWrapper = document.querySelector('.photographer_gallery');
-        this.$lightboxWrapper = document.querySelector('.photographer_lightbox');
+        this.$mediasWrapper = document.querySelector('.photographer_gallery');        
         this.$formWrapper = document.querySelector('.photographer_form');
         
         this.mediasApi = new PhotographerApi('/data/photographers.json');
-
-        this.$mediaList = [];
         
         // Medias
         this.Medias = [];
@@ -50,19 +47,18 @@ class Medias {
         const Form = new FormModal(this.UserContext);
         Form.render();
         
-        this.Medias.forEach(media => {
+        this.Medias.forEach(media => {            
             if(media.photographerId === this.idPhotographer) {
-                
-                this.$mediaList.push(media);
-                this.n = this.$mediaList.indexOf(this.photographer);
-                
-                const Template = new MediaCardWithLightbox(
-                    new MediaCard(media)
-                );
+                console.log(media.id);
+
+                const TemplateMediaCard = new MediaCard(media);
 
                 this.$mediasWrapper.appendChild(
-                    Template.createMediaCard()
+                    TemplateMediaCard.createMediaCard()
                 );
+
+                const TemplateLigthbox = new LightboxModal();
+                    TemplateLigthbox.onSrc();
             }
         });
     }
