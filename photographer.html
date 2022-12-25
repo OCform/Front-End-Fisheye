@@ -1,101 +1,41 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <!--[if IE]>
-      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <title>Fisheye - photographe</title>
+    <meta charset="UTF-8">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&amp;display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <title>Fisheye - photographe </title>
   </head>
-
   <body>
     <header>
-      <a role="link" aria-label="Fisheye Home page" href="/index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" /></a>
+      <img src="assets/images/logo.png" class="logo" alt="logo"/>
     </header>
     <main id="main">
-      <div class="photographer_portofolio">
-
-        <div class="photographer_header">
-
-          <div class="photographer_cartdrige">
-            <div class="photographer_name"></div>
-            <div class="photographer_location fs-16">
-              <div class="photographer_city"></div>
-              <div class="photographer_country"></div>
-            </div>
-            <div class="photographer_tagline fs-14"></div>
-          </div>
-
-          <div class="photographer_contact">
-            <button type="button" class="contact_button">
-              Contactez-moi
-            </button>
-          </div>
-
-          <div class="photographer_portrait"></div>
-
-        </div>
-
-        <div class="photographer_sort"></div>
-
-        <div class="photographer_gallery"></div>
-      
+      <div class="photograph-header">
+        <button type="button" class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
+      <div class="media_section"></div>
     </main>
-    <!-- <div class="photographer_lightbox_on">
-      <button type="button" class="close-btn"><em class="fa-solid fa-xmark">close</em></button>
-      <button type="button" class="next-btn" ><em class="fa-solid fa-chevron-right">next</em></button>
-      <button type="button" class="prev-btn" ><em class="fa-solid fa-chevron-right">previous</em></button>
-    </div> -->
-    <div class="photographer_form"></div>
-    <!-- Font awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
-      integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
-    
-    <!-- Factories -->
-    <script src="/js/factories/MediasFactory.js"></script>
-
-    <!-- Models -->
-    <script src="/js/models/OneMedia.js"></script>
-
-    <!-- Singleton -->
-    <script src="/js/db/User.js"></script>
-
-    <!-- Decorators -->
-    <!-- <script src="/js/decorators/MediaCardWithLightbox.js"></script> -->
-
-    <!-- Templates -->
-    <script src="/js/templates/FormModal.js"></script>
-    <script src="/js/templates/LightboxModal.js"></script>
-    <script src="/js/templates/MediaCard.js"></script>
-
-    <!-- Api -->
-    <script src="/js/api/Api.js"></script>
-
-    <!-- UserContext -->
-    <script src="/js/user/State.js"></script>
-    <script src="/js/user/Context.js"></script>
-
-    <!-- Entry point -->
-    <script src="/js/Medias.js"></script>
-
+    <div id="contact_modal">
+			<div class="modal">
+				<header>
+          <h2>Contactez-moi</h2>
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close"/>
+        </header>
+				<form>
+					<div>
+						<label for="firstname">Prénom</label>
+						<input id="firstname" name="firstname"/>
+					</div>
+          <button type="submit" class="contact_button">Envoyer</button>
+				</form>
+			</div>
+		</div>
+    <script src="scripts/factories/media.js"></script>
+    <script src="/scripts/pages/photographer.js"></script>
+    <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>
