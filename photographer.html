@@ -15,27 +15,41 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button type="button" class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photograph-cartridge">
+          <div class="photograph-name"></div>
+          <div class="photograph-location"></div>
+          <div class="photograph-tagline"></div>
+        </div>
+        <button type="button" class="contact-button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photograph-portrait"></div>
       </div>
-      <div class="media_section"></div>
+      <div class="photograph-galery"></div>
     </main>
-    <div id="contact_modal">
+    <div id="lightbox-modal"></div>
+    <div id="contact-modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close"/>
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Close button"/>
         </header>
 				<form>
 					<div>
 						<label for="firstname">Prénom</label>
-						<input id="firstname" name="firstname"/>
+						<input id="firstname"/>
 					</div>
-          <button type="submit" class="contact_button">Envoyer</button>
+          <button type="submit" class="contact-button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="scripts/factories/media.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Factories -->
+    <script src="scripts/factories/MediaFactory.js"></script>
+
+    <!-- Entry point -->
+    <script src="/scripts/pages/PhotographerApp.js"></script>
+
+    <!-- Utils -->
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

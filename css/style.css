@@ -12,6 +12,8 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    max-width: 1440px;
+    margin: auto;
 }
 
 h1 {
@@ -24,14 +26,16 @@ h1 {
     margin-left: 100px;
 }
 
-.photographer_section {
+.photograph-section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 70px;
+    margin: auto;
     margin-top: 100px;
+    max-width: 1440px;    
 }
 
-.photographer_section article {
+.photograph-section article {
     justify-self: center;
     display: flex;
     justify-content: center;
@@ -39,12 +43,13 @@ h1 {
     flex-direction: column;
 }
 
-.photographer_section article h2 {
+.photograph-section article h2 {
     color: #D3573C;
     font-size: 36px;
 }
 
-.photographer_section article img {
+.photograph-section article img {
     height: 200px;
     width: 200px;
+    object-fit: cover;
 }
