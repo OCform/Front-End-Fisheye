@@ -1,14 +1,19 @@
 class PhotographerApp {
     constructor() {
+        this.$moviesWrapper = document.querySelector('.movies-wrapper');
+        this.$modalWrapper = document.querySelector('.modal');
+
         this.medias = [];
         this.header = document.querySelector("header");
         this.logo = document.querySelector(".logo");
+
         this.photographGalery = document.querySelector(".photograph-galery");
         this.photographCartridge = document.querySelector(".photograph-cartridge");
         this.photographName = document.querySelector(".photograph-name");
         this.photographLocation = document.querySelector(".photograph-location");
         this.photographTagline = document.querySelector(".photograph-tagline");
         this.photographPortrait = document.querySelector(".photograph-portrait");
+        
 
         this.params = new URLSearchParams(document.location.search);
         this.name = this.params.get("name");
@@ -49,6 +54,8 @@ class PhotographerApp {
         p.textContent = this.tagline;
         this.photographTagline.appendChild(p);
 
+        
+
         const img = document.createElement( 'img' );
         img.setAttribute("src", this.portrait);
         img.style.width = '200px';
@@ -71,7 +78,7 @@ class PhotographerApp {
         .forEach((media) => {
             if(media.photographerId === this.idPhotographer) {
                 this.mediaModel = new MediaFactory(media);
-                this.mediaCardDOM = this.mediaModel.getMediaCardDOM();
+                this.mediaCardDOM = mediaCardWithPlayer(this.mediaModel.getMediaCardDOM());
                 this.photographGalery.appendChild(this.mediaCardDOM);
             }
         });

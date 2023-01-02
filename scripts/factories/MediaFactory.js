@@ -48,9 +48,8 @@ class MediaFactory {
     }
 
     getMediaCardDOM() {
-        const media = document.createElement( 'div' );        
-        media.classList.add('media');
-        
+        const mediaCard = document.createElement( 'div' );        
+        mediaCard.classList.add('media');        
 
         if(this.type === 'image') {
             const img = document.createElement( 'img' );
@@ -62,7 +61,7 @@ class MediaFactory {
             img.style.objectFit = 'cover';
             img.style.borderRadius = '2%';  
             img.style.cursor = 'pointer';
-            media.appendChild(img);                        
+            mediaCard.appendChild(img);                        
         }
 
         if(this.type === 'video') {
@@ -77,7 +76,7 @@ class MediaFactory {
             video.style.objectFit = 'cover';
             video.style.borderRadius = '2%';
             video.style.cursor = 'pointer';            
-            media.appendChild(video);          
+            mediaCard.appendChild(video);          
         }
 
         const caption = document.createElement( 'div' );        
@@ -106,8 +105,8 @@ class MediaFactory {
         heart.style.marginLeft = '5px';
         likes.appendChild(heart);
         
-        media.appendChild(caption);
+        mediaCard.appendChild(caption);
 
-        return (media);
+        return (mediaCard);
     }
 }
