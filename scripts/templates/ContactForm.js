@@ -223,7 +223,7 @@ class ContactForm {
                 <header>
                     <h1>Contactez-moi<br>${this.name}</h1>
                     <button type="reset" class="close" aria-label="contact">
-                        <img src="assets/icons/close.svg" alt="Close Contact form"/>
+                        <img src="assets/icons/close00.png" alt="Close Contact form"/>
                     </button>
                 </header>
 

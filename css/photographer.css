@@ -127,7 +127,7 @@ body > div > div > form > header > button {
     border: none;
     cursor: pointer;
 }
-
+body > div > div > form > header > button img {box-shadow: 4px 5px 5px #333;}
 .modal-contact form {
     position: absolute;
     left: 50%;
@@ -427,6 +427,7 @@ select#sorter-select {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    appearance: none;
 }
 
 select#sorter-select option {  
