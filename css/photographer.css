@@ -127,7 +127,11 @@ body > div > div > form > header > button {
     border: none;
     cursor: pointer;
 }
-body > div > div > form > header > button img {box-shadow: 4px 5px 5px #333;}
+
+#contact > header > button > img { 
+    fill: #901C1C;
+}
+
 .modal-contact form {
     position: absolute;
     left: 50%;
