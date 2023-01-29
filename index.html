@@ -11,17 +11,24 @@
 </head>
 <body>
   <header>
-    <img src="assets/images/logo.png" class="logo" alt="logo"/>
+    <a href="/index.html">        
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
+    </a>
     <h1>Nos photographes</h1>
   </header>
-  <main id="main">
-      <div class="photograph-section"></div>
-  </main>
+  <main class="photographers-wrapper"></main>
 
   <!-- Factories -->
-  <script src="scripts/factories/PhotographerFactory.js"></script>
+  <script src="/scripts/factories/PhotographerFactory.js"></script>
+
+  <!-- Models -->
+  <script src="/scripts/models/PhotographerModel.js"></script>
+
+  <!-- Templates -->
+  <script src="/scripts/templates/PhotographerCard.js"></script>
 
   <!-- Entry point -->
-  <script src="scripts/pages/IndexApp.js"></script>
+  <script src="/scripts/apps/IndexApp.js"></script>
+
 </body>
 </html>

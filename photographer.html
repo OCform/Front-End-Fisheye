@@ -6,55 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&amp;display=swap" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/photographer.css" rel="stylesheet" type="text/css">
     <title>Fisheye - photographe </title>
-  </head>
-  <body>
+  </head>  
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="logo"/>
+      <a href="/index.html">
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
+      </a>  
     </header>
-    <main id="main" class="movies-wrapper">
-      <div class="photograph-header">
-        <div class="photograph-cartridge">
-          <div class="photograph-name"></div>
-          <div class="photograph-location"></div>
-          <div class="photograph-tagline"></div>
-        </div>
-        <button type="button" class="contact-button" onclick="displayModal()">Contactez-moi</button>
-        <div class="photograph-portrait"></div>
+    
+    <main>
+      <div class="photographer-header"></div>
+      <div class="forms-wrapper">
+        <div class="sorter-form-wrapper"></div>
       </div>
-      <div class="photograph-galery"></div>
+      <div class="medias-wrapper"></div>
+      <div class="cartouche">
+        <span>
+          <div class="total-likes"></div> 
+          <em class="fa fa-heart" aria-hidden="true"></em>
+        </span>
+        <div class="price">price</div>
+      </div>      
     </main>
-    <div class="modal"></div>    
-    <div id="contact-modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Close button"/>
-        </header>
-				<form>
-					<div>
-						<label for="firstname">Prénom</label>
-						<input id="firstname"/>
-					</div>
-          <button type="submit" class="contact-button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+    
+    <div class="modal-contact"></div>
+    <div class="modal-lightbox"></div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- Factories -->
-    <script src="scripts/factories/MediaFactory.js"></script>
-    
-    <!-- Decorators -->
-    <script src="scripts/decorators/mediaCardWithPlayer.js"></script>
+  <!-- Lib -->
+  <script src="/lib/sorter/index.js"></script>
 
-    <!-- Utils -->    
-    <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/utils/PlayerModal.js"></script>
+  <!-- Factories -->
+  <script src="/scripts/factories/PhotographerFactory.js"></script>
 
-    <!-- Entry point -->
-    <script src="/scripts/pages/PhotographerApp.js"></script>
+  <!-- Models -->
+  <script src="/scripts/models/MediaModel.js"></script>
+
+  <!-- Singleton -->
+  <script src="/scripts/db/User.js"></script>
+
+  <!-- Templates -->
+  <script src="/scripts/templates/MediaCard.js"></script>
+  <script src="/scripts/templates/ContactForm.js"></script>
+  <script src="/scripts/templates/PlayerModal.js"></script>
+  <script src="/scripts/templates/SorterForm.js"></script>  
+  
+  <!-- Decorators -->
+  <script src="/scripts/decorators/mediaCardWithPlayer.js"></script>
+  
+  <!-- Entry point -->
+  <script src="/scripts/apps/PhotograperApp.js"></script>
     
   </body>
 </html>
