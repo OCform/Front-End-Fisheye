@@ -95,7 +95,7 @@ h1 {
     position: absolute;
     left: 0;
     top: 0;
-    height: 2000px/*100vh*/;
+    height: 2560px;
     width: 100vw;
     background-color: rgba(255, 255, 255, .7);
     overflow: hidden;
@@ -128,14 +128,10 @@ body > div > div > form > header > button {
     cursor: pointer;
 }
 
-#contact > header > button > img { 
-    fill: #901C1C;
-}
-
 .modal-contact form {
     position: absolute;
     left: 50%;
-    top: 27%;
+    top: 20%;
     transform: translate(-50%, -50%);
     background-color: #DB8876;
     color: #000;
@@ -296,7 +292,7 @@ form input {
 .player-wrapper {
     position: absolute;
     left: 50%;
-    top: 28%;
+    top: 22%;
     transform: translate(-50%, -50%);
 }
 
