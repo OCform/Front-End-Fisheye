@@ -8,7 +8,7 @@ class PhotographerCard {
         $wrapper.classList.add('photographer-card-wrapper');
 
         const photographerCard = `
-            <a href="/html/photographer.html?name=${this._photographer.name}&idPhotographer=${this._photographer.id}&city=${this._photographer.city}&country=${this._photographer.country}&tagline=${this._photographer.tagline}&price=${this._photographer.price}&portrait=${this._photographer.portrait}">
+            <a href="/photographer.html?name=${this._photographer.name}&idPhotographer=${this._photographer.id}&city=${this._photographer.city}&country=${this._photographer.country}&tagline=${this._photographer.tagline}&price=${this._photographer.price}&portrait=${this._photographer.portrait}">
                 <div class="photographer center">
                     <img
                         alt=""

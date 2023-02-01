@@ -79,11 +79,11 @@ class SorterForm {
 
     onChangeSorter() {
         this.$wrapper
-            .querySelector('#sorter-select')
+            .querySelector('form')
             .addEventListener('change', e => {
                 const sorter = e.target.value;
                 this.sorterMedias(sorter);
-            });            
+        });
     }
 
     clearMediasWrapper() {
@@ -93,14 +93,16 @@ class SorterForm {
     render() {
         const sorterForm = `            
             <form action="#" method="POST" class="sorter-form">
+            
                 <label for="sorter-select">Trier par  </label>
                 <select name="sorter-select" id="sorter-select">
                     <option value="POPULARITY" selected>Popularité&#8192&#8192&#8192&#8192 &#8192</option>                    
                     <option value="DATE">Date</option>
                     <option value="TITLE">Titre</option>
-                </select>                                
+                </select>
+                <i class="fa fa-chevron-down chevron"></i>                                
             </form>
-            <div class="chevron"><em class="fa fa-chevron-down"></em></div>
+            
         `;
         
         this.$wrapper.innerHTML = sorterForm;        
